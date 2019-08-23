@@ -1,4 +1,4 @@
-package consignment_cli
+package main
 
 import (
 	"context"
