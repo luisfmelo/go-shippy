@@ -11,7 +11,7 @@ import (
 )
 
 const (
-	address         = "localhost:50051"
+	address         = "localhost:8080"
 	defaultFilename = "consignment.json"
 )
 
@@ -37,7 +37,7 @@ func main() {
 	if err != nil {
 		log.Fatalf("Did not connect: %v", err)
 	}
-	defer conn.Close()
+	defer func() {_ = conn.Close()}()
 	client := pb.NewShippingServiceClient(conn)
 
 	// Contact the server and print out its response.
