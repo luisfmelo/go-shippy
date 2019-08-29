@@ -2,7 +2,6 @@ package main
 
 import (
 	"encoding/json"
-	"google.golang.org/grpc"
 	"io/ioutil"
 	"log"
 	"os"
@@ -32,7 +31,7 @@ func main() {
 	err := cmd.Init()
 
 	// Create new greeter client
-	client := pb.NewShippingServiceClient(microclient.DefaultClient.(*grpc.ClientConn))
+	client := pb.NewShippingServiceClient("go.micro.srv.consignment", microclient.DefaultClient)
 
 	// Contact the server and print out its response.
 	file := defaultFilename
